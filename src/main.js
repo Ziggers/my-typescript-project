@@ -1,39 +1,18 @@
-"use strict";
-var __createBinding = (this && this.__createBinding) || (Object.create ? (function(o, m, k, k2) {
-    if (k2 === undefined) k2 = k;
-    var desc = Object.getOwnPropertyDescriptor(m, k);
-    if (!desc || ("get" in desc ? !m.__esModule : desc.writable || desc.configurable)) {
-      desc = { enumerable: true, get: function() { return m[k]; } };
-    }
-    Object.defineProperty(o, k2, desc);
-}) : (function(o, m, k, k2) {
-    if (k2 === undefined) k2 = k;
-    o[k2] = m[k];
-}));
-var __setModuleDefault = (this && this.__setModuleDefault) || (Object.create ? (function(o, v) {
-    Object.defineProperty(o, "default", { enumerable: true, value: v });
-}) : function(o, v) {
-    o["default"] = v;
-});
-var __importStar = (this && this.__importStar) || function (mod) {
-    if (mod && mod.__esModule) return mod;
-    var result = {};
-    if (mod != null) for (var k in mod) if (k !== "default" && Object.prototype.hasOwnProperty.call(mod, k)) __createBinding(result, mod, k);
-    __setModuleDefault(result, mod);
-    return result;
-};
-Object.defineProperty(exports, "__esModule", { value: true });
-const readline = __importStar(require("readline"));
-const greeting = "Hello, TypeScript!";
+var readline = require('readline');
+var greeting = "Hello, TypeScript!";
 function greet(name) {
-    return `${greeting} Welcome, ${name}!`;
+    // Greet the user with a personalized message
+    return "".concat(greeting, " Welcome, ").concat(name, "!");
 }
 console.log(greet("Ziggers"));
-const rl = readline.createInterface({
+console.log(greet("Derek"));
+// Create a readline interface for user input
+var reader = readline.createInterface({
     input: process.stdin,
     output: process.stdout
 });
-rl.question("Enter your name: ", (userName) => {
-    console.log(greet(userName || "Guest"));
-    rl.close(); // Close the readline interface after capturing the input
+// Prompt the user for their name and greet them
+reader.question("Enter your name: ", function (userName) {
+    console.log(greet(userName.trim() || "Guest"));
+    reader.close();
 });
